@@ -26,27 +26,24 @@ void InsertList(char *c){
     	head = newNode;
     }
     else {    								//Insert at the middle of the list
-		while (curr->next != NULL) {			
-			if(*c <= curr->val)				//If letter c is less than curr's node value then new node will be inserted
-            {
-                newNode->next = curr;	
-                trail->next = newNode;           
-				break;     
-            }            
-			else							//If letter c is bigger than curr's node value then keep moving along the list until c is smaller 
-            {
-                trail = curr;				//Updating trail
-                curr = curr->next;			//Moving curr                 
-            }            
+	while (curr->next != NULL) {			
+		if(*c <= curr->val) {				//If letter c is less than curr's node value then new node will be inserted
+			newNode->next = curr;	
+			trail->next = newNode;           
+			break;     
+		}            
+		else {							//If letter c is bigger than curr's node value then keep moving along the list until c is smaller 
+			trail = curr;				//Updating trail
+			curr = curr->next;			//Moving curr                 
+		}            
         }
 		if (curr->next == NULL) {			//If letter c is the biggest letter then it's added to the last of the list
 			newNode->next = NULL;
 			curr->next=newNode;
 		}
-    }
-    
-	
+    	}	
 }
+
 void PrintList()
 {
     struct list *curr=head;
